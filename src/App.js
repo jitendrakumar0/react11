@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Handle Form in React</h2>
+      <form onSubmit={getFormData}>
+        <input type="text" placeholder='enter name' onChange={(e)=>setName(e.target.value)} /><br /><br />
+        <select onChange={(e)=>setInterest(e.target.value)}>
+          <option>Select Options</option>
+          <option>Marvel</option>
+          <option>DC</option>
+        </select><br /><br />
+        <input type="checkbox" onChange={(e)=>setTnc(e.target.checked)} /> <span>Accept terms and conditions</span><br /><br />
+        <button type='submit'>Submit</button>
+        <button>Clear</button>
+      </form>
     </div>
   );
 }
